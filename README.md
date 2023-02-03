@@ -17,7 +17,22 @@ https://www.csc.kth.se/~jsannemo/slask/main.pdf?fbclid=IwAR3TXRyOkkMc1Ov6ckctXNn
 https://cses.fi/book/book.pdf
 
 C. Journey:
+
 Month 1: 
   1. BigO Notation: expresses algorithm complexity (time/space complexity) used to solve a problem.
   2. Vector: a dynamic array (flexible in size) used to store elements of an array.
      
+
+Month 2: Problem Solving Paradigms
+Greedy Algorithms:
+- used to solve optimization problems by trying the best choice at each iteration.
+- Implementation:
+Sort the list of objects
+loop through the list and record optimal choices
+- Examples: 
+  1. Give the set of coin denominations {d1, d2, d3} and a target amount k. Return the min no.coins to make the change. Each 
+  Input: denominations = {1, 2, 5, 10}, k = 21
+  Output:  3
+  Explanation: 10 + 10 + 1 = 21
+  
+
