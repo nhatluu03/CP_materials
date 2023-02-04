@@ -1,0 +1,39 @@
+**Give the set of coin denominations {d1, d2, d3} and a target amount k. Return the min number of different coins to make the change.**
+
+**Input: denominations = {1, 2, 5, 10}, k = 21** 
+
+**Output: 3** 
+
+**Explanation: 10 + 10 + 1 = 21**
+
+#include <iostream>
+
+#include <vector>
+
+#include <algorithm>
+
+using namespace std;
+
+int main() {
+
+    int n, k, count = 0;
+
+    cin >> n >> k;
+
+    vector <int> denominations(n) = {1, 2, 10, 5};
+
+    sort(denominations.rbegin, denominations.rend());
+
+    for (int i=0; i<n; i++) {
+
+        while (k ≥ coins[i]) {
+
+      k -= coins[i];
+
+      count += 1;
+
+        }
+
+    cout << count;
+
+}
