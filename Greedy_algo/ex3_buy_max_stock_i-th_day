@@ -1,0 +1,27 @@
+**Ex3: Buy max stocks if i stocks can be bought on i-th day.**
+**A customer can buy at most i stocks on i-th day. If the customer has k money, find max n.o stocks can be bought a day.**
+**Input: price[] = [10, 7, 19], k =45**
+**Output: 4        (10 + 7*2 + 19)**
+#include <iostream>
+
+using namespace std;
+int main() {
+    int n = 3;
+    int price[3] = {10, 7, 19};
+    int k = 45;
+    int count = 0;
+
+    for (int i = 0; i < n; i++) {
+        if (k < price[i]) break;
+        for (int j = 0; j < i + 1; j++) {
+            if (k - price[i] >= 0) {
+                k -= price[i];
+                count += 1;
+            }
+            else {
+                break;
+            }
+        }
+    }
+    cout << count;
+}
