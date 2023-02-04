@@ -1,0 +1,25 @@
+Ex1: Find the maximum number of elements that sum up to target k. 
+
+#include <iostream>
+using namespace std;
+
+int main() {
+    int k = 18;
+    int arr[7] = {4, 12, 7, 2, 6, 3, 15};
+    // 4 16 21 27 => 4
+    // 
+    int l = 0, r =0, sum = 0, ans = 0;
+
+    for (r; r < 7; r++) {
+        sum += arr[r];
+        while (sum > k) {
+            sum -= arr[l];
+            l += 1;
+        }
+        if (ans < r - l + 1) {
+            ans = r - l + 1;
+        }
+    }
+
+    cout << ans;
+}
