@@ -1,0 +1,33 @@
+#include <iostream>
+#include <math.h>
+using namespace std;
+
+bool isComposite(int num) {
+    if (num < 4) return false;
+    for (int i = 2; i <= sqrt(num); i++) {
+        if (num % i == 0) return true;
+    }
+    return false;
+}
+
+int main() {
+    int n;
+    cout << "Enter a positive integer n: ";
+    cin >> n;
+
+    int c = 4, count = 0;
+    if (isComposite(n)) {
+        while (n >= c) {
+            count += n / c;
+            n = n % c;
+            c++;
+            while (!isComposite(c)) {
+                c++;
+            }
+        }
+        cout << "The given number can be splited into " << count << " composite numbers" << endl;
+    } else {
+        cout << "Input is not a composite number" << endl;
+    }
+    return 0;
+}
