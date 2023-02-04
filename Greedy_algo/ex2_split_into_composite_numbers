@@ -1,3 +1,5 @@
+**Ex2: Split n into maximum composite numbers**
+**Given n, print the maximum number of composite numbers that sum up to n. First few composite numbers are 4, 6, 8, 9, 10, 12, 14, 15, 16, 18, 20, …**
 #include <iostream>
 #include <math.h>
 using namespace std;
