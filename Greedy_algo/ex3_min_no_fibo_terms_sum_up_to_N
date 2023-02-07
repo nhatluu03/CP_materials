@@ -1,0 +1,41 @@
+**Given a number k, find the required minimum number of Fibonacci terms whose sum equal to k. 
+**We can choose a Fibonacci number multiple times.
+#include <iostream>
+#include <vector>
+using namespace std;
+
+int MinFiboTerms(int n) {
+	if (n < 0) return -1;
+	// Construct a vector of fibonacci terms (less than n)
+	vector <int> fiboTerms;
+	fiboTerms.push_back(0);
+	fiboTerms.push_back(1);
+	fiboTerms.push_back(1);
+
+	int i = 3;
+	while (true) {
+		int nextElement = fiboTerms[i-1] + fiboTerms[i-2];
+		if (nextElement > n) break;
+		fiboTerms.push_back(nextElement);
+		i += 1;
+	}
+
+	int count = 0;
+	while (n > 0) {
+		count += n / fiboTerms.back();
+		n = n % fiboTerms.back();
+		fiboTerms.pop_back();
+	}
+
+	return count;
+}
+
+int main() {
+	int n = 30;
+	int res =MinFiboTerms(n);
+	if (res == -1) {
+		cout << "Invalid number of fibonacci terms!";
+	} else {
+		cout << "Minimum no fibonacci terms that sum up to " << n << ": " << res;
+	}
+}
