@@ -1,3 +1,4 @@
+Ex1: Count sum of natural even numbers (not 0) less than N.
 #include <iostream>
 using namespace std;
 
