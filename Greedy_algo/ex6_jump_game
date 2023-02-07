@@ -1,0 +1,30 @@
+**https://leetcode.com/problems/jump-game-ii/
+#include <iostream>
+using namespace std;
+
+int main() {
+    int nums[] = {2,3,1,1,4};
+    int n = sizeof(nums) / sizeof(nums[0]);
+    int l = 0, reqSteps, nextPosition, count = 0;
+
+    while (l < n-1) {
+        reqSteps = (n-1) - l;
+        if (nums[l] < reqSteps) {
+            int nextMaxSteps = 0;
+            int z = 1;
+            int tmpZ = 1;
+            for (z; z < nums[l] + 1; z++) {
+                if (nums[l+z] >= nextMaxSteps) {
+                    nextMaxSteps = nums[l+z];
+                    tmpZ = z;
+                }
+            }
+            l = l + tmpZ;
+            count += 1;
+        } else {
+            count += 1;
+            break;
+        }
+    }
+    cout << count;
+}
