@@ -1,0 +1,55 @@
+#include <bits/stdc++.h>
+#include <vector>
+using namespace std;
+
+string s;
+int n;
+vector <int> subSets;
+char res[100];
+
+bool isSumString() {
+    for (int i = 2; i<subSets.size(); i++) {
+        cout << subSets[i] << " ?= " << subSets[i - 1] << " + " << subSets[i - 2] << endl;
+        if (subSets[i] != subSets[i - 1] + subSets[i - 2]) {
+            return false;
+        }
+    }
+    return true;
+}
+
+void printRes() {
+    for (int i = 0; i < n; i++) {
+        if (res[i] != '\0') {
+            cout << res[i];
+        }
+    }
+    cout << endl;
+}
+
+void subSet(int i) {
+    if (i == n) {
+        // subSets.push_back((int)res);
+        printRes();
+        return;
+    }
+
+    res[i] = '\0';
+    subSet(i + 1);
+
+    res[i] = s[i];
+    subSet(i + 1);
+}
+
+int main() {
+    cin >> s;
+    n = s.length();
+    subSet(0);
+
+    if (isSumString()) {
+        cout << "Yes"; 
+    } else {
+        cout << "No";
+    }
+
+    return 0;
+}
