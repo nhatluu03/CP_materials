@@ -1,0 +1,45 @@
+**Given a set of positive integers, find all its subsets.** 
+**Input: arr= [1,2,3]**
+**Output: [ , 3, 2, 23, 1, 13, 12, 123]**
+
+#include <bits/stdc++.h>
+using namespace std;
+
+const int N = 100;
+int arr[N];
+int n;
+int res[N];
+
+void printRes() {  
+    for (int i = 0; i < n; i++) {
+        if (res[i]) {
+            cout << arr[i] << " ";
+        }
+    }
+    cout << endl;
+}
+
+void subSet(int i) {
+    if (i == n) {
+        printRes();
+        return;
+    }
+
+    // try without arr[i]
+    res[i] = 0;
+    subSet(i + 1);
+
+    // try with arr[i]
+    res[i] = 1;
+    subSet(i + 1);
+}
+
+int main() {
+    cin >> n;
+    for (int i = 0; i < n; i++) {
+        cin >> arr[i];
+    }
+
+    subSet(0);
+    return 0;
+}
